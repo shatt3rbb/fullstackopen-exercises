@@ -1,0 +1,33 @@
+title PostSinglePageApp
+
+note over browser:
+We assume user has loaded the spa
+By submitting the form, instead of
+making a post request and then being
+redirected, the windows.onload function
+handles the posting
+end note
+
+note over browser:
+a note dictionary is created with the date
+and the body of the submission. A preventDefault
+function is used to prevent default submission.
+the note is appended on a notes list that includes
+all notes parsed from data.json when the user reloaded
+the page and all notes appended by the user.
+A redrawNotes function is used to redraw the notes list
+on the browser.
+end note
+
+note over browser:
+A SendToServer function makes a post request
+to the server pushing the note
+end note
+
+browser->server: HTTP POST https://fullstack-exampleapp.herokuapp.com/new_note_spa
+
+note over server:
+Server submits the note to data.json
+end note
+
+server->browser: 201 Status Code Reply (Created)
